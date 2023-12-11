@@ -1,5 +1,5 @@
 
-import axios from '.node_modules/axios';
+import axios from '/node_modules/axios';
 console.log("index included")
 console.log("running")
 const audiofil=document.getElementById('audiofile').value;
