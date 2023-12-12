@@ -28,3 +28,6 @@ form.addEventListener("submit", async (event) => {
     console.error("error uploding file", error);
   }
 });
+//git add -A
+//git commit -m ''
+//git status 
