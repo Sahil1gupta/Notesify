@@ -12,7 +12,7 @@ form.addEventListener("submit", async (event) => {
 
   try {
     const response = await axios.post(
-      "https://notesify-server.vercel.app/translate/translateAudio",
+      "https://notesify-server.vercel.app/transcript/transcriptAudio",
       formData,
       {
         headers: {
