@@ -1,7 +1,5 @@
-console.log("index included");
-console.log("running");
+console.log("Hit 1");
 const audiofile = document.getElementById("audiofile").value;
-console.log(audiofile);
 const form = document.getElementById("uploadAudio");
 
 form.addEventListener("submit", async (event) => {
