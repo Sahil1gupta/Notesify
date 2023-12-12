@@ -5,7 +5,7 @@ form.addEventListener("submit", async (event) => {
   event.preventDefault();
   const formData = new FormData();
   const audiofile = document.getElementById("audiofile").files[0];
-  formData.append("audio", audiofile);
+  formData.append("speech", audiofile);
 
   try {
     const response = await axios.post(
