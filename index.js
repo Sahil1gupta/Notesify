@@ -4,12 +4,13 @@ const form = document.getElementById("uploadAudio");
 form.addEventListener("submit", async (event) => {
   event.preventDefault();
   const formData = new FormData();
-  const audiofile = document.getElementById("audiofile").files[0];
-  formData.append("audio", audiofile);
+
+  const audiofile = document.getElementById("audio").files[0];
+  formData.append("text", audiofile);
 
   try {
     const response = await axios.post(
-      "https://notesify-server.vercel.app/transcript/transcriptAudio",
+      "https://notesify-server.vercel.app/speech/generateSpeech",
       formData,
       {
         headers: {
@@ -18,7 +19,7 @@ form.addEventListener("submit", async (event) => {
         }
       }
     );
-    console.log(response.data.notes);
+    console.log(response);
   } catch (error) {
     console.error("error uploding file", error);
   }
