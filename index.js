@@ -9,7 +9,7 @@ form.addEventListener("submit", async (event) => {
 
   try {
     const response = await axios.post(
-      "https://notesify-server.vercel.app/transcript/transcriptAudio",
+      "https://notesify-server.vercel.app/speech/generateSpeech",
       formData,
       {
         headers: {
@@ -18,7 +18,7 @@ form.addEventListener("submit", async (event) => {
         }
       }
     );
-    console.log(response.data.notes);
+    console.log(response);
   } catch (error) {
     console.error("error uploding file", error);
   }
