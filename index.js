@@ -1,12 +1,12 @@
 console.log("Hit 1");
-const audiofile = document.getElementById("audiofile").value;
+const audio = document.getElementById("audio").value;
 const form = document.getElementById("uploadAudio");
 
 form.addEventListener("submit", async (event) => {
   event.preventDefault();
   const formData = new FormData();
-  const audiofile = document.getElementById("audiofile").files[0];
-  formData.append("audiofile", audiofile);
+  const audio = document.getElementById("audio").files[0];
+  formData.append("audio", audio);
 
   try {
     const response = await axios.post(
