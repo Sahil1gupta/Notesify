@@ -1,60 +1,105 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- displays site properly based on user's device -->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!-- displays site properly based on user's device -->
 
   <link rel="icon" type="image/png" sizes="32x32" href="./assets/images/favicon-32x32.png">
-  <link rel="stylesheet"  href="style.css">
+  <link rel="stylesheet" href="style.css">
   <title>Frontend Mentor | Newsletter sign-up form with success message</title>
 
   <!-- Feel free to remove these styles or customise in your own stylesheet 👍 -->
   <style>
-    .attribution { font-size: 11px; text-align: center; }
-    .attribution a { color: hsl(228, 45%, 44%); }
+    .attribution {
+      font-size: 11px;
+      text-align: center;
+    }
+
+    .attribution a {
+      color: hsl(228, 45%, 44%);
+    }
   </style>
+  <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+
 </head>
+
 <body>
 
   <!-- Sign-up form start -->
   <div class="parent">
-      <div class="main-div">
-        <div class="Input_container">
-          <h1>Convert your speech to Text !</h1>
-          <p>
-            Join 60,000+ product managers receiving monthly updates on:
-          </p>
-          <div class="checksContainer">
-            <div class="check1">
-              <span class="tick"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 64 64"><defs><linearGradient id="a" x1="100%" x2="0%" y1="0%" y2="100%"><stop offset="0%" stop-color="#FF6A3A"/><stop offset="100%" stop-color="#FF527B"/></linearGradient></defs><g fill="none"><circle cx="32" cy="32" r="32" fill="url(#a)"/><path stroke="#FFF" stroke-width="4" d="m18.286 34.686 8.334 7.98 19.094-18.285"/></g></svg></span>
-              <span>Product discovery and building what matters</span>
-            </div>
-            <div class="check2">
-              <span class="tick"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 64 64"><defs><linearGradient id="a" x1="100%" x2="0%" y1="0%" y2="100%"><stop offset="0%" stop-color="#FF6A3A"/><stop offset="100%" stop-color="#FF527B"/></linearGradient></defs><g fill="none"><circle cx="32" cy="32" r="32" fill="url(#a)"/><path stroke="#FFF" stroke-width="4" d="m18.286 34.686 8.334 7.98 19.094-18.285"/></g></svg></span>
-              <span>Measuring to ensure updates are a success</span>
-            </div>
-            <div class="check3">
-              <span class="tick"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 64 64"><defs><linearGradient id="a" x1="100%" x2="0%" y1="0%" y2="100%"><stop offset="0%" stop-color="#FF6A3A"/><stop offset="100%" stop-color="#FF527B"/></linearGradient></defs><g fill="none"><circle cx="32" cy="32" r="32" fill="url(#a)"/><path stroke="#FFF" stroke-width="4" d="m18.286 34.686 8.334 7.98 19.094-18.285"/></g></svg></span>
-              <span>And much more!</span>
-            </div>
+    <div class="main-div">
+      <div class="Input_container">
+        <h1>Convert your speech to Text !</h1>
+        <p>
+          Join 60,000+ product managers receiving monthly updates on:
+        </p>
+        <div class="checksContainer">
+          <div class="check1">
+            <span class="tick"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 64 64">
+                <defs>
+                  <linearGradient id="a" x1="100%" x2="0%" y1="0%" y2="100%">
+                    <stop offset="0%" stop-color="#FF6A3A" />
+                    <stop offset="100%" stop-color="#FF527B" />
+                  </linearGradient>
+                </defs>
+                <g fill="none">
+                  <circle cx="32" cy="32" r="32" fill="url(#a)" />
+                  <path stroke="#FFF" stroke-width="4" d="m18.286 34.686 8.334 7.98 19.094-18.285" />
+                </g>
+              </svg></span>
+            <span>Product discovery and building what matters</span>
           </div>
-      <form id ="uploadAudio" enctype="multipart/form-data">
+          <div class="check2">
+            <span class="tick"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 64 64">
+                <defs>
+                  <linearGradient id="a" x1="100%" x2="0%" y1="0%" y2="100%">
+                    <stop offset="0%" stop-color="#FF6A3A" />
+                    <stop offset="100%" stop-color="#FF527B" />
+                  </linearGradient>
+                </defs>
+                <g fill="none">
+                  <circle cx="32" cy="32" r="32" fill="url(#a)" />
+                  <path stroke="#FFF" stroke-width="4" d="m18.286 34.686 8.334 7.98 19.094-18.285" />
+                </g>
+              </svg></span>
+            <span>Measuring to ensure updates are a success</span>
+          </div>
+          <div class="check3">
+            <span class="tick"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 64 64">
+                <defs>
+                  <linearGradient id="a" x1="100%" x2="0%" y1="0%" y2="100%">
+                    <stop offset="0%" stop-color="#FF6A3A" />
+                    <stop offset="100%" stop-color="#FF527B" />
+                  </linearGradient>
+                </defs>
+                <g fill="none">
+                  <circle cx="32" cy="32" r="32" fill="url(#a)" />
+                  <path stroke="#FFF" stroke-width="4" d="m18.286 34.686 8.334 7.98 19.094-18.285" />
+                </g>
+              </svg></span>
+            <span>And much more!</span>
+          </div>
+        </div>
+        <form id="uploadAudio" enctype="multipart/form-data">
           <div class="uploadfile">
             <span>Upload your audio file below</span>
           </div>
-          <input class="inputfile" type="file" name="file" id="audiofile"/>
-          <label for="audiofile">Upload file</label>
+          <input class="inputfile" type="file" name="file" id="text" />
+          <label for="text">Upload file</label>
           <button type="submit">Upload</button>
-       
-      </form>
-    </div>
-        <div class="Output_container">
-          <img class="mainImg" src="./assets/images/illustration-sign-up-desktop.svg" width="100%" height="100%" />
-        </div>
+
+        </form>
+      </div>
+      <div class="Output_container">
+        <img class="mainImg" src="./assets/images/illustration-sign-up-desktop.svg" width="100%" height="100%" />
+      </div>
     </div>
   </div>
 
-    </div>
+  </div>
 </body>
 <script type="module" src="index.js"></script>
+
 </html>
