@@ -4,6 +4,7 @@ const form = document.getElementById("uploadAudio");
 form.addEventListener("submit", async (event) => {
   event.preventDefault();
   const formData = new FormData();
+
   const audiofile = document.getElementById("audio").files[0];
   formData.append("text", audiofile);
 
