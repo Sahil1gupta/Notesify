@@ -17,7 +17,7 @@ form.addEventListener("submit", async (event) => {
       {
         headers: {
           "Content-Type": "multipart/form-data",
-          Accept: "*/*",
+          Accept: "*",
           "Accept-Encoding": "gzip, deflate, br",
           Connection: "keep-alive",
           authorization:
