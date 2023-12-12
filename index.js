@@ -16,10 +16,6 @@ form.addEventListener("submit", async (event) => {
       formData,
       {
         headers: {
-          "Content-Type": "multipart/form-data",
-          Accept: "*",
-          "Accept-Encoding": "gzip, deflate, br",
-          Connection: "keep-alive",
           authorization:
             "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY1NzVhYTFjNTk4ZWJlMmQyNGVhNTZkMyIsImlhdCI6MTcwMjM2NjUxMywiZXhwIjoxNzAyMzg4MTEzfQ.oGQKtkBTeiDYJup1alONQKd4t8-ocJnFc_bANS7R2Xw"
         }
