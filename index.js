@@ -21,7 +21,7 @@ form.addEventListener("submit", async (event) => {
         }
       }
     );
-    console.log("File uploaded successfully", response.data.notes);
+    console.log(response.data.notes);
   } catch (error) {
     console.error("error uploding file", error);
   }
