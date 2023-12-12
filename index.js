@@ -1,4 +1,3 @@
-import axios from "axios";
 console.log("index included");
 console.log("running");
 const audiofil = document.getElementById("audiofile").value;
