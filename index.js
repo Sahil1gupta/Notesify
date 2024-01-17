@@ -2,6 +2,8 @@ console.log("Hit 1");
 const form = document.getElementById("uploadAudio");
 
 form.addEventListener("submit", async (event) => {
+  console.log("form clicked")
+  console.log(event)
   event.preventDefault();
   const formData = new FormData();
   const text = document.getElementById("text").files[0];

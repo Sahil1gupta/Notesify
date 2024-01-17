@@ -10,6 +10,7 @@
   <link rel="stylesheet" href="style.css">
   <title>Frontend Mentor | Newsletter sign-up form with success message</title>
   <link href="https://cdn.quilljs.com/1.3.6/quill.snow.css" rel="stylesheet">
+
   <!-- Feel free to remove these styles or customise in your own stylesheet 👍 -->
   <style>
     .attribution {
@@ -24,6 +25,8 @@
   <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
 
 </head>
+<!-- html to pdf  -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.9.3/html2pdf.bundle.js"></script>
 
 <body>
 
@@ -103,16 +106,16 @@
       </div>
       <div class="Output_container">
         <div class="" id="editor">
-          <!-- <img class="mainImg" src="./assets/images/illustration-sign-up-desktop.svg" width="100%" height="100%" /> -->
           <p style="color: gray;">You'll get your converted text here!! </p>
-        </div>      
+          
+        </div>  
+        <button onclick="htmlTopdf()" id="Download-button">Download pdf</button>
       </div>
     </div>
   </div>
 
-  </div>
 </body>
-<script type="module" src="index.js"></script>
+<script  src="index.js"></script>
 <script src="https://cdn.quilljs.com/1.3.6/quill.js"></script>
 <script>
  var quill = new Quill('#editor', {
@@ -141,5 +144,19 @@
   }
 });
 
+
+function htmlTopdf(){
+ const element= document.getElementById('editor');
+ var opt = {
+  margin:       1,
+  filename:     'myfile.pdf',
+  image:        { type: 'jpeg', quality: 0.98 },
+  html2canvas:  { scale: 2 },
+  jsPDF:        { unit: 'in', format: 'letter', orientation: 'portrait' }
+};
+
+// New Promise-based usage:
+html2pdf().set(opt).from(element).save();
+}
 </script>
 </html>

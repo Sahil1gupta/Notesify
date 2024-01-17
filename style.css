@@ -11,6 +11,7 @@ html{
     --primary:#242742;
     --btn-color:#36384E;
     --submit-color:#ff6153;
+    --download-color:#23241f;
 }
 
 .parent{
@@ -31,7 +32,7 @@ html{
     padding:2em;
 
     display:flex;
-    flex-direction: column;
+    flex-direction: row;
     flex-wrap: wrap;
     justify-content: space-between;
     align-items: center;
@@ -123,6 +124,20 @@ label{
     text-align: center;
     border-radius: 10px;
     background-color: var(--submit-color);
+    color:white;
+    line-height: 45px;
+    font-size: medium;
+    cursor: pointer;
+    outline: none;
+}
+#Download-button{
+    margin-top: 1em;
+    display: block;
+    height: 50px;
+    width: 200px;
+    text-align: center;
+    border-radius: 10px;
+    background-color: var(--download-color);
     color:white;
     line-height: 45px;
     font-size: medium;
