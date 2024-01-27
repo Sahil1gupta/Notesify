@@ -1,7 +1,6 @@
-document.addEventListener('DOMContentLoaded', () => {
+window.onload = function () {
   console.log("Hit 1");
   const form = document.getElementById("uploadAudio");
-  
   let data = {
     text: ""
   };
@@ -51,6 +50,5 @@ document.addEventListener('DOMContentLoaded', () => {
         console.error("Error setting up the request", error.message);
       }
     }
-
   });
-});
+};
