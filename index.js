@@ -9,7 +9,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const formData = new FormData();
     const audio = document.getElementById("text").files[0];
     formData.append("audio", audio);
-
+    let dataContainer = document.getElementById("dataContainer");
     try {
       const response = await axios.post(
         "https://notesify-server.vercel.app/transcript/transcriptAudio",
@@ -25,11 +25,11 @@ document.addEventListener('DOMContentLoaded', () => {
       let data = {
         text: response.data.data.text
       };
-      const dataContainer = document.getElementById("dataContainer");
+     
       console.log("dataContainer:", dataContainer);
       
       if (dataContainer) {
-        const pTag = document.createElement('p');
+        let pTag = document.createElement('p');
         pTag.textContent = data.text;
         dataContainer.appendChild(pTag);
       } else {
@@ -53,3 +53,5 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   });
 });
+
+
