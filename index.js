@@ -23,7 +23,7 @@ form.addEventListener("submit", async (event) => {
       console.log(response)
     console.log(response.data);
     let data={
-      text:response.data.text
+      text:response.data.data.text
     }
     console.log(data.text)
   }  catch (error) {
