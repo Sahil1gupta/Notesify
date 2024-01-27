@@ -16,7 +16,7 @@ document.addEventListener("DOMContentLoaded", () => {
     formData.append("audio", audio);
 
     let editor = document.getElementById("editor");
-    var childElements = editorElement.children;
+    var childElements = editor.children;
 
     // Log or process each child element
     console.log("hii")
