@@ -29,9 +29,11 @@ form.addEventListener("submit", async (event) => {
    const dataContainer= document.getElementById("dataContainer");
    const pTag=document.createElement('p');
    pTag.textContent=data.text;
+   console.log(data.text)
+   console.log(pTag.textContent)
    dataContainer.appendChild(pTag);
 
-    console.log(data.text)
+   
   }  catch (error) {
     console.error("Error uploading file", error);
     if (error.response) {
