@@ -2,12 +2,12 @@ console.log("Hit 1");
 const form = document.getElementById("uploadAudio");
 
 form.addEventListener("submit", async (event) => {
+  event.preventDefault();
   console.log("form clicked")
   console.log(event)
-  event.preventDefault();
   const formData = new FormData();
-  const text = document.getElementById("text").files[0];
-  formData.append("text", text);
+  const audio = document.getElementById("text").files[0];
+  formData.append("audio",audio);
 
   try {
     const response = await axios.post(
@@ -17,15 +17,15 @@ form.addEventListener("submit", async (event) => {
       {
         headers: {
           authorization:
-            "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY1NzVhYTFjNTk4ZWJlMmQyNGVhNTZkMyIsImlhdCI6MTcwMjM2NjUxMywiZXhwIjoxNzAyMzg4MTEzfQ.oGQKtkBTeiDYJup1alONQKd4t8-ocJnFc_bANS7R2Xw"
+          "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY1ODQ0NDdiNzZlMmM4ZTY4ZmQxNTllZiIsImlhdCI6MTcwNjMzODk5OCwiZXhwIjoxNzA2MzYwNTk4fQ.KIZsWifauaXQhSBkZRVTk0_JfD62Gw1IF2g-0u3Du8c"
         },
-        responseType: "blob"
+        // responseType: "data"
       }
     );
-
-    const audioUrl = URL.createObjectURL(response.data);
-    const audio = new Audio(audioUrl);
-    audio.play();
+      console.log("axios hit")
+    // const audioUrl = URL.createObjectURL(response.data);
+    // const audio = new Audio(audioUrl);
+    // audio.play();
     console.log(response);
   } catch (error) {
     console.error("error uploding file", error);
