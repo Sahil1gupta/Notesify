@@ -14,9 +14,11 @@ document.addEventListener('DOMContentLoaded', () => {
       const formData = new FormData();
       const audio = document.getElementById("text").files[0];
       formData.append("audio", audio);
-      let dataCont = document.getElementById("dataContainer");
+    
       let editor=document.getElementById("editor")
       console.log(editor)
+      editor.innerHTML+=`<div id="dataContainer">hii</div>`
+      let dataCont = document.getElementById("dataContainer");
       try {
           const response = await axios.post(
               "https://notesify-server.vercel.app/transcript/transcriptAudio",
