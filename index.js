@@ -22,7 +22,7 @@ document.addEventListener('DOMContentLoaded', () => {
               formData,
               {
                   headers: {
-                      authorization: "your_token_here"  // Replace with your actual token
+                      authorization: "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY1ODQ0NDdiNzZlMmM4ZTY4ZmQxNTllZiIsImlhdCI6MTcwNjM2Njk0NywiZXhwIjoxNzA2Mzg4NTQ3fQ.j3TVKrNHnDr6zX2Qjfuh8f8WOGx4Od2bJk_ykUtZo4Y"  // Replace with your actual token
                   },
               }
           );
