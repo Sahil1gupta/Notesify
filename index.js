@@ -12,14 +12,19 @@ window.onload = function () {
     const formData = new FormData();
     const audio = document.getElementById("text").files[0];
     formData.append("audio", audio);
+
+    // Delay for a short time to allow Quill to initialize, adjust as needed
+    await new Promise(resolve => setTimeout(resolve, 500));
+
     let dataCont = document.getElementById("dataContainer");
+
     try {
       const response = await axios.post(
         "https://notesify-server.vercel.app/transcript/transcriptAudio",
         formData,
         {
           headers: {
-            authorization: "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY1ODQ0NDdiNzZlMmM4ZTY4ZmQxNTllZiIsImlhdCI6MTcwNjMzODk5OCwiZXhwIjoxNzA2MzYwNTk4fQ.KIZsWifauaXQhSBkZRVTk0_JfD62Gw1IF2g-0u3Du8c"  // Replace with your actual token
+            authorization: "your_actual_token_here"  // Replace with your actual token
           },
         }
       );
