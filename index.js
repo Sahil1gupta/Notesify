@@ -1,5 +1,9 @@
-document.addEventListener('DOMContentLoaded', () => {
-  console.log("DOM Content Loaded");
+// index.js
+
+// Wrap the entire script in a function
+function initialize() {
+  console.log("Script initialized");
+
   const form = document.getElementById("uploadAudio");
 
   let data = {
@@ -22,7 +26,7 @@ document.addEventListener('DOMContentLoaded', () => {
               formData,
               {
                   headers: {
-                      authorization: "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY1ODQ0NDdiNzZlMmM4ZTY4ZmQxNTllZiIsImlhdCI6MTcwNjM2Njk0NywiZXhwIjoxNzA2Mzg4NTQ3fQ.j3TVKrNHnDr6zX2Qjfuh8f8WOGx4Od2bJk_ykUtZo4Y"  // Replace with your actual token
+                      authorization: "your_token_here"  // Replace with your actual token
                   },
               }
           );
@@ -69,4 +73,7 @@ document.addEventListener('DOMContentLoaded', () => {
       // New Promise-based usage:
       html2pdf().set(opt).from(element).save();
   }
-});
+
+  // Call the function after the document is fully loaded
+  initialize();
+}
