@@ -2,12 +2,6 @@ document.addEventListener('DOMContentLoaded', () => {
   console.log("Hit 1");
   const form = document.getElementById("uploadAudio");
   let dataCont = document.getElementById("dataContainer");
-  if(dataCont){
-    console.log("no issue")
-  }
-  else{
-    console.log("quill isue")
-  }
   let data = {
     text: ""
   };
