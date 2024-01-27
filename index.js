@@ -1,7 +1,7 @@
 document.addEventListener('DOMContentLoaded', () => {
   console.log("Hit 1");
   const form = document.getElementById("uploadAudio");
-  let dataContainer = document.getElementById("dataContainer");
+  let dataCont = document.getElementById("dataContainer");
   form.addEventListener("submit", async (event) => {
     event.preventDefault();
     console.log("form clicked");
@@ -26,12 +26,12 @@ document.addEventListener('DOMContentLoaded', () => {
         text: response.data.data.text
       };
      
-      console.log("dataContainer:", dataContainer);
-      
-      if (dataContainer) {
+      console.log("dataContainer:", dataCont);
+      dataCont+=`<p>${data.text}</p>`
+      if (dataCont) {
         let pTag = document.createElement('p');
         pTag.textContent = data.text;
-        dataContainer.appendChild(pTag);
+        dataCont.appendChild(pTag);
       } else {
         console.error("dataContainer is null or undefined. Check your HTML structure.");
       }
