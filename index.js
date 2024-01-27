@@ -18,6 +18,7 @@ document.addEventListener('DOMContentLoaded', () => {
       let editor=document.getElementById("editor")
       console.log(editor)
       editor.innerHTML+=`<div id="dataContainer">hii</div>`
+    
       let dataCont = document.getElementById("dataContainer");
       console.log(editor)
       console.log(dataCont)
