@@ -20,8 +20,8 @@ form.addEventListener("submit", async (event) => {
       }
     );
       console.log("axios hit")
-    
-    console.log(response.data.text);
+      console.log(response)
+    console.log(response.data);
   }  catch (error) {
     console.error("Error uploading file", error);
     if (error.response) {
