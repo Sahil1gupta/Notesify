@@ -1,7 +1,7 @@
 document.addEventListener('DOMContentLoaded', () => {
   console.log("Hit 1");
   const form = document.getElementById("uploadAudio");
-  let dataCont = document.getElementById("dataContainer");
+  
   let data = {
     text: ""
   };
@@ -13,7 +13,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const formData = new FormData();
     const audio = document.getElementById("text").files[0];
     formData.append("audio", audio);
-
+    let dataCont = document.getElementById("dataContainer");
     try {
       const response = await axios.post(
         "https://notesify-server.vercel.app/transcript/transcriptAudio",
