@@ -1,6 +1,7 @@
-window.onload = function () {
+document.addEventListener('DOMContentLoaded', () => {
   console.log("Hit 1");
   const form = document.getElementById("uploadAudio");
+  let dataCont = document.getElementById("dataContainer");
   let data = {
     text: ""
   };
@@ -12,7 +13,7 @@ window.onload = function () {
     const formData = new FormData();
     const audio = document.getElementById("text").files[0];
     formData.append("audio", audio);
-    let dataCont = document.getElementById("dataContainer");
+
     try {
       const response = await axios.post(
         "https://notesify-server.vercel.app/transcript/transcriptAudio",
@@ -50,5 +51,6 @@ window.onload = function () {
         console.error("Error setting up the request", error.message);
       }
     }
+
   });
-};
+});
