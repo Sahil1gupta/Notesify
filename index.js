@@ -26,8 +26,8 @@ document.addEventListener("DOMContentLoaded", () => {
     let qlEditor = document.querySelector(".ql-editor");
     console.log(qlEditor);
     console.log(editor);
-    qlEditor.innerHTML += `<div id="dataContainer">hii</div>`;
-
+    childElements[0].innerHTML += `<div id="dataContainer">hii</div>`;
+    console.log(qlEditor);
     let dataCont = document.getElementById("dataContainer");
     console.log(editor);
     console.log(dataCont);
