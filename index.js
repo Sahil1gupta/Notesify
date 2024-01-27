@@ -2,6 +2,9 @@ document.addEventListener('DOMContentLoaded', () => {
   console.log("Hit 1");
   const form = document.getElementById("uploadAudio");
   let dataCont = document.getElementById("dataContainer");
+  let data = {
+    text:""
+  };
   form.addEventListener("submit", async (event) => {
     event.preventDefault();
     console.log("form clicked");
@@ -22,14 +25,14 @@ document.addEventListener('DOMContentLoaded', () => {
       );
       console.log("axios hit");
       console.log(response.data);
-      let data = {
-        text: response.data.data.text
-      };
+      
+       data.text= response.data.data.text
+    
 
-      console.log("dataContainer:", dataCont);
-      dataCont.innerHTML += `<p>${data.text}</p>`;
+      console.log("dataText:", data.text);
+     
 
-      console.log(data.text);
+      // console.log(data.text);
     } catch (error) {
       console.error("Error uploading file", error);
       if (error.response) {
@@ -43,5 +46,7 @@ document.addEventListener('DOMContentLoaded', () => {
         console.error("Error setting up the request", error.message);
       }
     }
+   
   });
+  dataCont.innerHTML += `<p>${data.text}</p>`;
 });
