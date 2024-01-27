@@ -19,6 +19,8 @@ document.addEventListener('DOMContentLoaded', () => {
       console.log(editor)
       editor.innerHTML+=`<div id="dataContainer">hii</div>`
       let dataCont = document.getElementById("dataContainer");
+      console.log(editor)
+      console.log(dataCont)
       try {
           const response = await axios.post(
               "https://notesify-server.vercel.app/transcript/transcriptAudio",
