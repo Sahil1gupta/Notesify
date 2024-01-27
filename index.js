@@ -12,12 +12,11 @@ form.addEventListener("submit", async (event) => {
   try {
     const response = await axios.post(
       // "https://notesify-server.vercel.app/speech/generateSpeech",
-      "https://notesify-server.vercel.app/transcript/transcriptAudio",
+      "https://cors-anywhere.herokuapp.com/https://notesify-server.vercel.app/transcript/transcriptAudio",
       formData,
       {
         headers: {
-          authorization:
-          "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY1ODQ0NDdiNzZlMmM4ZTY4ZmQxNTllZiIsImlhdCI6MTcwNjMzODk5OCwiZXhwIjoxNzA2MzYwNTk4fQ.KIZsWifauaXQhSBkZRVTk0_JfD62Gw1IF2g-0u3Du8c"
+          authorization:"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY1ODQ0NDdiNzZlMmM4ZTY4ZmQxNTllZiIsImlhdCI6MTcwNjMzODk5OCwiZXhwIjoxNzA2MzYwNTk4fQ.KIZsWifauaXQhSBkZRVTk0_JfD62Gw1IF2g-0u3Du8c"
         },
         // responseType: "data"
       }
