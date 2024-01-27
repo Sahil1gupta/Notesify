@@ -25,11 +25,17 @@ document.addEventListener('DOMContentLoaded', () => {
       let data = {
         text: response.data.data.text
       };
-
       const dataContainer = document.getElementById("dataContainer");
-      const pTag = document.createElement('p');
-      pTag.textContent = data.text;
-      dataContainer.appendChild(pTag);
+      console.log("dataContainer:", dataContainer);
+      
+      if (dataContainer) {
+        const pTag = document.createElement('p');
+        pTag.textContent = data.text;
+        dataContainer.appendChild(pTag);
+      } else {
+        console.error("dataContainer is null or undefined. Check your HTML structure.");
+      }
+      
 
       console.log(data.text);
     } catch (error) {
