@@ -11,7 +11,6 @@ form.addEventListener("submit", async (event) => {
 
   try {
     const response = await axios.post(
-      // "https://notesify-server.vercel.app/speech/generateSpeech",
       "https://notesify-server.vercel.app/transcript/transcriptAudio",
       formData,
       {
@@ -19,18 +18,27 @@ form.addEventListener("submit", async (event) => {
           authorization:
           "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY1ODQ0NDdiNzZlMmM4ZTY4ZmQxNTllZiIsImlhdCI6MTcwNjMzODk5OCwiZXhwIjoxNzA2MzYwNTk4fQ.KIZsWifauaXQhSBkZRVTk0_JfD62Gw1IF2g-0u3Du8c"
         },
-        // responseType: "data"
       }
     );
       console.log("axios hit")
-    // const audioUrl = URL.createObjectURL(response.data);
-    // const audio = new Audio(audioUrl);
-    // audio.play();
+    
     console.log(response);
-  } catch (error) {
-    console.error("error uploding file", error);
+  }  catch (error) {
+    console.error("Error uploading file", error);
+    if (error.response) {
+      // The request was made and the server responded with a status code
+      // that falls out of the range of 2xx
+      console.error("Server responded with data:", error.response.data);
+      console.error("Server responded with status:", error.response.status);
+      console.error("Server responded with headers:", error.response.headers);
+    } else if (error.request) {
+      // The request was made but no response was received
+      console.error("No response received from the server");
+      console.error("Request data:", error.request);
+    } else {
+      // Something happened in setting up the request that triggered an Error
+      console.error("Error setting up the request", error.message);
+    }
   }
+  
 });
-//git add -A //stage
-//git commit -m ''
-//git status 
