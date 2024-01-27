@@ -26,11 +26,16 @@ document.addEventListener("DOMContentLoaded", () => {
     let qlEditor = document.querySelector(".ql-editor");
     console.log(qlEditor.children[0]);
     console.log(editor);
-    childElements[0].innerHTML += `<div id="dataContainer">hii</div>`;
+    var dataContainer = document.createElement('div');
+    dataContainer.id = 'dataContainer';
+    dataContainer.innerHTML = 'hii';
+    qlEditor.appendChild(dataContainer);
+
     console.log(qlEditor);
     let dataCont = document.getElementById("dataContainer");
     console.log(editor);
     console.log(dataCont);
+    let luli=qlEditor.children[0]
     try {
       const response = await axios.post(
         "https://notesify-server.vercel.app/transcript/transcriptAudio",
@@ -47,7 +52,7 @@ document.addEventListener("DOMContentLoaded", () => {
       console.log(response.data);
 
       data.text = response.data.data.text;
-
+        luli.textContent=data.text;
       console.log("dataText:", data.text);
 
       // Update the dataContainer only if it exists
