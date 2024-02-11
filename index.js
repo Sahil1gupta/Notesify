@@ -57,22 +57,6 @@ document.addEventListener("DOMContentLoaded", () => {
             },
           }
         );
-        console.log("axios hit");
-        console.log(response.data);
-  
-        data.text = response.data.data.text;
-          luli.textContent=data.text;
-        console.log("dataText:", data.text);
-  
-        // Update the dataContainer only if it exists
-        if (dataCont) {
-          dataCont.innerHTML += `<p>${data.text}</p>`;
-        } else {
-          console.error(
-            "dataContainer is null or undefined. Check your HTML structure."
-          );
-        }
-        
       }
       else if(currentApi=='toAudio'){
          response = await axios.post(
@@ -85,16 +69,24 @@ document.addEventListener("DOMContentLoaded", () => {
             },
           }
         );
-
-        const audioUrl = URL.createObjectURL(response.data);
-        const audio = new Audio(audioUrl);
-        audio.play();
-        console.log(response);
-       
       }
    
 
-    
+      console.log("axios hit");
+      console.log(response.data);
+
+      data.text = response.data.data.text;
+        luli.textContent=data.text;
+      console.log("dataText:", data.text);
+
+      // Update the dataContainer only if it exists
+      if (dataCont) {
+        dataCont.innerHTML += `<p>${data.text}</p>`;
+      } else {
+        console.error(
+          "dataContainer is null or undefined. Check your HTML structure."
+        );
+      }
     } catch (error) {
       console.error("Error uploading file", error);
       if (error.response) {
