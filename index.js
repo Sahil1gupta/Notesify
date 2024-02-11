@@ -1,4 +1,3 @@
-
 let getSelectedValue;
 document.addEventListener("DOMContentLoaded", () => {
   console.log("DOM Content Loaded");
@@ -8,11 +7,11 @@ document.addEventListener("DOMContentLoaded", () => {
     text: "",
   };
   let currentApi;
- getSelectedValue=function (){
-  const selectedOption=document.getElementById('selectApi')
-  currentApi= selectedOption.value
-  console.log(currentApi)
-}
+  getSelectedValue = function () {
+    const selectedOption = document.getElementById("selectApi");
+    currentApi = selectedOption.value;
+    console.log(currentApi);
+  };
 
   form.addEventListener("submit", async (event) => {
     event.preventDefault();
@@ -27,27 +26,27 @@ document.addEventListener("DOMContentLoaded", () => {
     var childElements = editor.children;
 
     // Log or process each child element
-    console.log("hii")
+    console.log("hii");
     for (var i = 0; i < childElements.length; i++) {
       console.log(childElements[i]);
     }
     let qlEditor = document.querySelector(".ql-editor");
     console.log(qlEditor.children[0]);
     console.log(editor);
-    var dataContainer = document.createElement('div');
-    dataContainer.id = 'dataContainer';
-    dataContainer.innerHTML = 'hii';
+    var dataContainer = document.createElement("div");
+    dataContainer.id = "dataContainer";
+    dataContainer.innerHTML = "hii";
     qlEditor.appendChild(dataContainer);
 
     console.log(qlEditor);
     let dataCont = document.getElementById("dataContainer");
     console.log(editor);
     console.log(dataCont);
-    let luli=qlEditor.children[0]
+    let luli = qlEditor.children[0];
     try {
       let response;
-      if(currentApi=='toText'){
-         response = await axios.post(
+      if (currentApi === "toText") {
+        response = await axios.post(
           "https://notesify-server.vercel.app/transcript/transcriptAudio",
           formData,
           {
@@ -57,9 +56,21 @@ document.addEventListener("DOMContentLoaded", () => {
             },
           }
         );
-      }
-      else if(currentApi=='toAudio'){
-         response = await axios.post(
+
+        data.text = response.data.data.text;
+        luli.textContent = data.text;
+        console.log("dataText:", data.text);
+
+        // Update the dataContainer only if it exists
+        if (dataCont) {
+          dataCont.innerHTML += `<p>${data.text}</p>`;
+        } else {
+          console.error(
+            "dataContainer is null or undefined. Check your HTML structure."
+          );
+        }
+      } else if (currentApi === "toAudio") {
+        response = await axios.post(
           "https://notesify-server.vercel.app//speech/generateSpeech",
           formData,
           {
@@ -67,26 +78,17 @@ document.addEventListener("DOMContentLoaded", () => {
               authorization:
                 "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY1ODQ0NDdiNzZlMmM4ZTY4ZmQxNTllZiIsImlhdCI6MTcwNzY2MjE3MiwiZXhwIjoxNzEwMjU0MTcyfQ.0pr27n7__W9WNqV7dd2oD7r3MyzZqaztKrmUq7kxAPw", // Replace with your actual token
             },
+            responseType: "blob",
           }
         );
+        const audioUrl = URL.createObjectURL(response.data);
+        const audio = new Audio(audioUrl);
+        audio.play();
+        console.log(response);
       }
-   
 
       console.log("axios hit");
       console.log(response.data);
-
-      data.text = response.data.data.text;
-        luli.textContent=data.text;
-      console.log("dataText:", data.text);
-
-      // Update the dataContainer only if it exists
-      if (dataCont) {
-        dataCont.innerHTML += `<p>${data.text}</p>`;
-      } else {
-        console.error(
-          "dataContainer is null or undefined. Check your HTML structure."
-        );
-      }
     } catch (error) {
       console.error("Error uploading file", error);
       if (error.response) {
@@ -101,7 +103,4 @@ document.addEventListener("DOMContentLoaded", () => {
       }
     }
   });
-
-  
-
 });
