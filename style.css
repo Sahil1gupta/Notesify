@@ -21,21 +21,20 @@ html{
 }
 
 .main-div{
-    width:85.1rem;
-    height: 55.7rem;
+    width: 100rem;
+    height: 69.7rem;
     background-color: #FFFFFF;
     position: absolute;
-     top :50%;
-     left: 50%;
+    top: 50%;
+    left: 50%;
     transform: translate(-50%,-50%);
     border-radius: 16px;
-    padding:2em;
-
-    display:flex;
+    padding: 2em;
+    display: flex;
     flex-direction: row;
     flex-wrap: wrap;
-    justify-content: space-between;
-    align-items: center;
+    justify-content: space-evenly;
+    align-items: baseline;
 }
 .Input_container{
     height:47.3rem;
@@ -62,8 +61,8 @@ html{
     row-gap: 10px;
 }
 .Output_container{
-    height:40.6rem;
-    width: 30.13rem;
+    height: 40rem;
+    width: 50rem 
     /* background-color: red; */
 }
 
@@ -143,4 +142,13 @@ label{
     font-size: medium;
     cursor: pointer;
     outline: none;
+}
+
+#selectApi{
+    padding: 15px 30px;
+    border: none;
+    background: #23241f;
+    color: white;
+    border-radius: 10px;
+    margin-top: 5px;
 }
