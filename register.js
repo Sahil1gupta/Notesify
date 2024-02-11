@@ -18,17 +18,20 @@ form.addEventListener('submit',async(event)=>{
     RegisterData.append("password",password);
 
     try{
-        const response=await axios.post("url",RegisterData,
+        const response=await axios.post("https://notesify-server.vercel.app//user/signup",RegisterData,
         {
             headers: {
-                authorization: "ACCESS_TOKEN"  
+                // authorization: "ACCESS_TOKEN"  
             },
-            responseType: "json"
+            // responseType: "json"
           }
         )
+          const jwtToken=response.data;
+          console.log(jwtToken)
         window.location.href="login.html"
     }
-    catch(error){
-
+    catch (error) {
+        console.error("Error:", error);
+        // Handle registration error here
     }
 })

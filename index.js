@@ -1,3 +1,5 @@
+
+let getSelectedValue;
 document.addEventListener("DOMContentLoaded", () => {
   console.log("DOM Content Loaded");
   const form = document.getElementById("uploadAudio");
@@ -5,6 +7,12 @@ document.addEventListener("DOMContentLoaded", () => {
   let data = {
     text: "",
   };
+  let currentApi;
+ getSelectedValue=function (){
+  const selectedOption=document.getElementById('selectApi')
+  currentApi= selectedOption.value
+  console.log(currentApi)
+}
 
   form.addEventListener("submit", async (event) => {
     event.preventDefault();
@@ -37,16 +45,31 @@ document.addEventListener("DOMContentLoaded", () => {
     console.log(dataCont);
     let luli=qlEditor.children[0]
     try {
-      const response = await axios.post(
-        "https://notesify-server.vercel.app/transcript/transcriptAudio",
-        formData,
-        {
-          headers: {
-            authorization:
-              "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY1ODQ0NDdiNzZlMmM4ZTY4ZmQxNTllZiIsImlhdCI6MTcwNjM2Njk0NywiZXhwIjoxNzA2Mzg4NTQ3fQ.j3TVKrNHnDr6zX2Qjfuh8f8WOGx4Od2bJk_ykUtZo4Y", // Replace with your actual token
-          },
-        }
-      );
+      if(currentApi=='toText'){
+        const response = await axios.post(
+          "https://notesify-server.vercel.app/transcript/transcriptAudio",
+          formData,
+          {
+            headers: {
+              authorization:
+                "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY1ODQ0NDdiNzZlMmM4ZTY4ZmQxNTllZiIsImlhdCI6MTcwNzY2MjE3MiwiZXhwIjoxNzEwMjU0MTcyfQ.0pr27n7__W9WNqV7dd2oD7r3MyzZqaztKrmUq7kxAPw", // Replace with your actual token
+            },
+          }
+        );
+      }
+      else if(currentApi=='toAudio'){
+        const response = await axios.post(
+          "https://notesify-server.vercel.app//speech/generateSpeech",
+          formData,
+          {
+            headers: {
+              authorization:
+                "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY1ODQ0NDdiNzZlMmM4ZTY4ZmQxNTllZiIsImlhdCI6MTcwNzY2MjE3MiwiZXhwIjoxNzEwMjU0MTcyfQ.0pr27n7__W9WNqV7dd2oD7r3MyzZqaztKrmUq7kxAPw", // Replace with your actual token
+            },
+          }
+        );
+      }
+   
 
       console.log("axios hit");
       console.log(response.data);

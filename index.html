@@ -92,43 +92,50 @@
               <div class="gif-container">
                 <img src="./assets/Audio_gif/microphone.gif" alt="audio gif" class="gif">
               </div>
-            </div>  
             </label>
-           
-          
+          </div>
+          <div class="API-Selector">
+              <select name="api" id="selectApi" onchange="getSelectedValue()">
+                <option value="" selected disabled>Select API</option>
+                <option value="toText">Audio to text</option>
+                <option value="toAudio">Text to audio</option>
+              </select>
+          </div>
 
-          <button type="submit" id="Submit-button">Submit</button>
+
+          <button type="submit" id="Submit-button">Convert</button>
 
         </form>
       </div>
       <div class="Output_container">
         <div class="" id="editor">
-          <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Maxime, cum.</p>     
-        </div>  
+          <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Maxime, cum.</p>
+        </div>
         <button onclick="htmlTopdf()" id="Download-button">Download pdf</button>
       </div>
     </div>
   </div>
-   
-    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.9.3/html2pdf.bundle.js"></script>
-    <script src="https://cdn.quilljs.com/1.3.6/quill.js"></script>
-    <script src="quillSetup.js"></script>
-    <script src="index.js" defer></script>
-    <script>
-      function htmlTopdf() {
-    const element = document.getElementById("editor");
-    var opt = {
-      margin: 1,
-      filename: "myfile.pdf",
-      image: { type: "jpeg", quality: 0.98 },
-      html2canvas: { scale: 2 },
-      jsPDF: { unit: "in", format: "letter", orientation: "portrait" },
-    };
 
-    // New Promise-based usage:
-    html2pdf().set(opt).from(element).save();
-  }
-    </script>
+  <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.9.3/html2pdf.bundle.js"></script>
+  <script src="https://cdn.quilljs.com/1.3.6/quill.js"></script>
+  <script src="quillSetup.js"></script>
+  <script src="index.js" defer></script>
+  <script>
+    function htmlTopdf() {
+      const element = document.getElementById("editor");
+      var opt = {
+        margin: 1,
+        filename: "myfile.pdf",
+        image: { type: "jpeg", quality: 0.98 },
+        html2canvas: { scale: 2 },
+        jsPDF: { unit: "in", format: "letter", orientation: "portrait" },
+      };
+
+      // New Promise-based usage:
+      html2pdf().set(opt).from(element).save();
+    }
+  </script>
 </body>
+
 </html>
