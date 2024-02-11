@@ -57,6 +57,11 @@ document.addEventListener("DOMContentLoaded", () => {
             },
           }
         );
+
+        const audioUrl = URL.createObjectURL(response.data);
+        const audio = new Audio(audioUrl);
+        audio.play();
+        console.log(response);
       }
       else if(currentApi=='toAudio'){
          response = await axios.post(
