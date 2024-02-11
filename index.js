@@ -57,24 +57,6 @@ document.addEventListener("DOMContentLoaded", () => {
             },
           }
         );
-
-        const audioUrl = URL.createObjectURL(response.data);
-        const audio = new Audio(audioUrl);
-        audio.play();
-        console.log(response);
-      }
-      else if(currentApi=='toAudio'){
-         response = await axios.post(
-          "https://notesify-server.vercel.app//speech/generateSpeech",
-          formData,
-          {
-            headers: {
-              authorization:
-                "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY1ODQ0NDdiNzZlMmM4ZTY4ZmQxNTllZiIsImlhdCI6MTcwNzY2MjE3MiwiZXhwIjoxNzEwMjU0MTcyfQ.0pr27n7__W9WNqV7dd2oD7r3MyzZqaztKrmUq7kxAPw", // Replace with your actual token
-            },
-          }
-        );
-
         console.log("axios hit");
         console.log(response.data);
   
@@ -90,6 +72,25 @@ document.addEventListener("DOMContentLoaded", () => {
             "dataContainer is null or undefined. Check your HTML structure."
           );
         }
+        
+      }
+      else if(currentApi=='toAudio'){
+         response = await axios.post(
+          "https://notesify-server.vercel.app//speech/generateSpeech",
+          formData,
+          {
+            headers: {
+              authorization:
+                "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY1ODQ0NDdiNzZlMmM4ZTY4ZmQxNTllZiIsImlhdCI6MTcwNzY2MjE3MiwiZXhwIjoxNzEwMjU0MTcyfQ.0pr27n7__W9WNqV7dd2oD7r3MyzZqaztKrmUq7kxAPw", // Replace with your actual token
+            },
+          }
+        );
+
+        const audioUrl = URL.createObjectURL(response.data);
+        const audio = new Audio(audioUrl);
+        audio.play();
+        console.log(response);
+       
       }
    
 
