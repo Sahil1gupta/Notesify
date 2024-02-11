@@ -45,8 +45,9 @@ document.addEventListener("DOMContentLoaded", () => {
     console.log(dataCont);
     let luli=qlEditor.children[0]
     try {
+      let response;
       if(currentApi=='toText'){
-        const response = await axios.post(
+         response = await axios.post(
           "https://notesify-server.vercel.app/transcript/transcriptAudio",
           formData,
           {
@@ -58,7 +59,7 @@ document.addEventListener("DOMContentLoaded", () => {
         );
       }
       else if(currentApi=='toAudio'){
-        const response = await axios.post(
+         response = await axios.post(
           "https://notesify-server.vercel.app//speech/generateSpeech",
           formData,
           {
