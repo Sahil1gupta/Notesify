@@ -71,7 +71,7 @@ document.addEventListener("DOMContentLoaded", () => {
         }
       } else if (currentApi === "toAudio") {
         response = await axios.post(
-          "https://notesify-server.vercel.app//speech/generateSpeech",
+          "https://notesify-server.vercel.app/speech/generateSpeech",
           formData,
           {
             headers: {
