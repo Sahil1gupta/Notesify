@@ -12,10 +12,10 @@ form.addEventListener('submit', async (event) => {
     let username = document.getElementById('username').value;
     let password = document.getElementById('password').value;
 
-    RegisterData.append("firstname", firstname);
-    RegisterData.append("lastname", lastname);
+    RegisterData.append("firstName", firstname);
+    RegisterData.append("lastName", lastname);
+    RegisterData.append("userName", username);
     RegisterData.append("email", email);
-    RegisterData.append("username", username);
     RegisterData.append("password", password);
 
     try {
