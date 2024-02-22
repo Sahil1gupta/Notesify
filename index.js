@@ -1,6 +1,4 @@
-// import axios from 'axios'; // Import axios library
-
-const form=document.getElementById("registerForm");
+const form = document.getElementById("registerForm");
 
 form.addEventListener('submit', async (event) => {
     event.preventDefault();
@@ -10,7 +8,6 @@ form.addEventListener('submit', async (event) => {
     let lastName = document.getElementById('lastName').value;
     let userName = document.getElementById('userName').value;
     let email = document.getElementById('email').value;
-   
     let password = document.getElementById('password').value;
 
     RegisterData.append("firstName", firstName);
@@ -20,13 +17,17 @@ form.addEventListener('submit', async (event) => {
     RegisterData.append("password", password);
 
     try {
-        const response = await axios.post("https://notesify-server.vercel.app/user/signup", RegisterData, {
-            headers: {
-                // authorization: "ACCESS_TOKEN"  
-            },
-            // responseType: "json"
+        const response = await fetch("https://notesify-server.vercel.app/user/signup", {
+            method: 'POST',
+            body: RegisterData,
+            // headers: {
+            //     // You can include headers here if needed
+            // }
         });
-        const jwtToken =  response.data;
+        if (!response.ok) {
+            throw new Error('Network response was not ok');
+        }
+        const jwtToken = await response.json();
         console.log(jwtToken);
         window.location.href = "login.html";
     } catch (error) {
