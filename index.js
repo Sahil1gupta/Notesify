@@ -1,4 +1,4 @@
-import axios from 'axios'; // Import axios library
+// import axios from 'axios'; // Import axios library
 
 const form=document.getElementById("registerForm");
 
