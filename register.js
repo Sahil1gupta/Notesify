@@ -26,7 +26,7 @@ form.addEventListener('submit',async(event)=>{
             // responseType: "json"
           }
         )
-          const jwtToken=response.data;
+          const jwtToken=await response.data;
           console.log(jwtToken)
         window.location.href="login.html"
     }
