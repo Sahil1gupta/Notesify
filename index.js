@@ -15,7 +15,7 @@ form.addEventListener('submit', async (event) => {
     RegisterData.append("userName", userName);
     RegisterData.append("email", email);
     RegisterData.append("password", password);
-
+    console.log(RegisterData)
     try {
         const response = await fetch("https://notesify-server.vercel.app/user/signup", {
             method: 'POST',
