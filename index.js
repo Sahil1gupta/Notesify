@@ -20,7 +20,7 @@ form.addEventListener('submit', async (event) => {
     RegisterData.append("password", password);
 
     try {
-        const response = await axios.post("https://notesify-server.vercel.app/user/signup", RegisterData, {
+        const response = await axios.post("https://notesify-server.onrender/user/signup", RegisterData, {
             headers: {
                 // authorization: "ACCESS_TOKEN"  
             },
