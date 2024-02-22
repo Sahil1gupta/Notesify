@@ -6,15 +6,16 @@ form.addEventListener('submit', async (event) => {
     event.preventDefault();
     let RegisterData = new FormData();
 
-    let firstname = document.getElementById('firstname').value;
-    let lastname = document.getElementById('lastname').value;
+    let firstName = document.getElementById('firstName').value;
+    let lastName = document.getElementById('lastName').value;
+    let userName = document.getElementById('userName').value;
     let email = document.getElementById('email').value;
-    let username = document.getElementById('username').value;
+   
     let password = document.getElementById('password').value;
 
-    RegisterData.append("firstName", firstname);
-    RegisterData.append("lastName", lastname);
-    RegisterData.append("userName", username);
+    RegisterData.append("firstName", firstName);
+    RegisterData.append("lastName", lastName);
+    RegisterData.append("userName", userName);
     RegisterData.append("email", email);
     RegisterData.append("password", password);
 
