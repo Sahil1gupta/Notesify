@@ -39,6 +39,7 @@ form.addEventListener("submit", async (event) => {
     } else {
       const jwtToken = response.data;
       console.log(jwtToken);
+      window.location.href = "login.html";
     }
   } catch (error) {
     console.error("Error:", error);
