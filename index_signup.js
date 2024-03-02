@@ -37,9 +37,10 @@ form.addEventListener("submit", async (event) => {
     if (response.status !== 200) {
       console.log("network issue");
     } else {
-      const jwtToken = response.data;
+      const jwtToken = response.data.token;
+      document.cookie = `token=${jwtToken}; path=/`;
       console.log(jwtToken);
-      window.location.href = "login.html";
+    //   window.location.href = "login.html";
     }
   } catch (error) {
     console.error("Error:", error);
