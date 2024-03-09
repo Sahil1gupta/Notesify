@@ -1,54 +1,141 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
 
 <head>
-  <meta charset="utf-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link href="https://cdn.tailwindcss.com" rel="stylesheet">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!-- displays site properly based on user's device -->
+
+  <link rel="icon" type="image/png" sizes="32x32" href="./assets/images/favicon-32x32.png">
+  <link rel="stylesheet" href="style.css">
+  <title>Notesify | A Converter</title>
+  <link href="https://cdn.quilljs.com/1.3.6/quill.snow.css" rel="stylesheet">
+
+  <!-- Feel free to remove these styles or customise in your own stylesheet 👍 -->
+  <style>
+    .attribution {
+      font-size: 11px;
+      text-align: center;
+    }
+
+    .attribution a {
+      color: hsl(228, 45%, 44%);
+    }
+  </style>
+
 </head>
 
-<body class="h-screen overflow-hidden flex items-center justify-center" style="background: #edf2f7;">
-  <script src="https://cdn.tailwindcss.com"></script>
-  <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+<body>
 
-  <div class="container mx-auto py-8">
-    <h1 class="text-2xl font-bold mb-6 text-center">Sign Up</h1>
-    <form id="registerForm" class="w-full max-w-sm mx-auto bg-white p-8 rounded-md shadow-md">
-      <div class="mb-4">
-        <label class="block text-gray-700 text-sm font-bold mb-2" for="firstname">First Name</label>
-        <input class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:border-indigo-500"
-          type="text" id="firstName" name="firstname" placeholder="John">
-      </div>
-      <div class="mb-4">
-        <label class="block text-gray-700 text-sm font-bold mb-2" for="lastname">Last Name</label>
-        <input class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:border-indigo-500"
-          type="text" id="lastName" name="lastname" placeholder="Doe">
-      </div>
-      <div class="mb-4">
-        <label class="block text-gray-700 text-sm font-bold mb-2" for="username">Username</label>
-        <input class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:border-indigo-500"
-          type="text" id="userName" name="userName" placeholder="username">
-      </div>
-      <div class="mb-4">
-        <label class="block text-gray-700 text-sm font-bold mb-2" for="email">Email</label>
-        <input class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:border-indigo-500"
-          type="email" id="email" name="email" placeholder="john@example.com">
-      </div>
+  <!-- Sign-up form start -->
+  <div class="parent">
+    <div class="main-div">
+      <div class="Input_container">
+        <h1>Welcome to Notesify</h1>
+        <p>
+          Convert Voice to Text & Vice Versa!
+        </p>
+        <div class="checksContainer">
+          <div class="check1">
+            <span class="tick"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 64 64">
+                <defs>
+                  <linearGradient id="a" x1="100%" x2="0%" y1="0%" y2="100%">
+                    <stop offset="0%" stop-color="#FF6A3A" />
+                    <stop offset="100%" stop-color="#FF527B" />
+                  </linearGradient>
+                </defs>
+                <g fill="none">
+                  <circle cx="32" cy="32" r="32" fill="url(#a)" />
+                  <path stroke="#FFF" stroke-width="4" d="m18.286 34.686 8.334 7.98 19.094-18.285" />
+                </g>
+              </svg></span>
+            <span>Play with your converted text</span>
+          </div>
+          <div class="check2">
+            <span class="tick"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 64 64">
+                <defs>
+                  <linearGradient id="a" x1="100%" x2="0%" y1="0%" y2="100%">
+                    <stop offset="0%" stop-color="#FF6A3A" />
+                    <stop offset="100%" stop-color="#FF527B" />
+                  </linearGradient>
+                </defs>
+                <g fill="none">
+                  <circle cx="32" cy="32" r="32" fill="url(#a)" />
+                  <path stroke="#FFF" stroke-width="4" d="m18.286 34.686 8.334 7.98 19.094-18.285" />
+                </g>
+              </svg></span>
+            <span>Download the pdf file for converted text</span>
+          </div>
+          <div class="check3">
+            <span class="tick"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 64 64">
+                <defs>
+                  <linearGradient id="a" x1="100%" x2="0%" y1="0%" y2="100%">
+                    <stop offset="0%" stop-color="#FF6A3A" />
+                    <stop offset="100%" stop-color="#FF527B" />
+                  </linearGradient>
+                </defs>
+                <g fill="none">
+                  <circle cx="32" cy="32" r="32" fill="url(#a)" />
+                  <path stroke="#FFF" stroke-width="4" d="m18.286 34.686 8.334 7.98 19.094-18.285" />
+                </g>
+              </svg></span>
+            <span>And much more!</span>
+          </div>
+        </div>
+        <form id="uploadAudio" enctype="multipart/form-data">
+          <div class="uploadfile">
+            <span>Upload your file below</span>
+          </div>
+          <div class="Filecontainer">
+            <input class="inputfile" type="file" name="file" id="text" />
+            <label for="text">Upload file
+              <div class="gif-container">
+                <img src="./assets/Audio_gif/microphone.gif" alt="audio gif" class="gif">
+              </div>
+            </label>
+          </div>
+          <div class="API-Selector">
+              <select name="api" id="selectApi" onchange="getSelectedValue()">
+                <option value="" selected disabled>Select Your Converter</option>
+                <option value="toText">Audio to Text</option>
+                <option value="toAudio">Text to Audio</option>
+              </select>
+          </div>
 
-      <div class="mb-4">
-        <label class="block text-gray-700 text-sm font-bold mb-2" for="confirm-password">Confirm Password</label>
-        <input class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:border-indigo-500"
-          type="password" id="password" name="password" placeholder="********">
-      </div>
 
-      <button
-        class="w-full bg-indigo-500 text-white text-sm font-bold py-2 px-4 rounded-md hover:bg-indigo-600 transition duration-300"
-        type="submit">Sign Up</button>
-    </form>
+          <button type="submit" id="Submit-button">Convert</button>
+
+        </form>
+      </div>
+      <div class="Output_container">
+        <div class="" id="editor">
+          <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Maxime, cum.</p>
+        </div>
+        <button onclick="htmlTopdf()" id="Download-button">Download pdf</button>
+      </div>
+    </div>
   </div>
-  <script src="index.js"></script>
-</body>
 
+  <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.9.3/html2pdf.bundle.js"></script>
+  <script src="https://cdn.quilljs.com/1.3.6/quill.js"></script>
+  <script src="quillSetup.js"></script>
+  <script src="index.js" defer></script>
+  <script>
+    function htmlTopdf() {
+      const element = document.getElementById("editor");
+      var opt = {
+        margin: 1,
+        filename: "myfile.pdf",
+        image: { type: "jpeg", quality: 0.98 },
+        html2canvas: { scale: 2 },
+        jsPDF: { unit: "in", format: "letter", orientation: "portrait" },
+      };
+
+      // New Promise-based usage:
+      html2pdf().set(opt).from(element).save();
+    }
+  </script>
+</body>
 
 </html>
