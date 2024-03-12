@@ -1,154 +1,203 @@
-*{
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
-html{
-    font-size: 10px; 
-    /* 62.5% */
+html {
+  font-size: 10px;
+  /* 62.5% */
 }
-:root{
-    --primary:#242742;
-    --btn-color:#36384E;
-    --submit-color:#ff6153;
-    --download-color:#23241f;
-}
-
-.parent{
-    height: 100vh;
-    width: 100vw;
-    background-color: var(--primary);
+:root {
+  --primary: #242742;
+  --btn-color: #36384e;
+  --submit-color: #ff6153;
+  --download-color: #23241f;
 }
 
-.main-div{
-    width: 100rem;
-    height: 69.7rem;
-    background-color: #FFFFFF;
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%,-50%);
-    border-radius: 16px;
-    padding: 2em;
-    display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
-    justify-content: space-evenly;
-    align-items: baseline;
-}
-.Input_container{
-    height:47.3rem;
-    width: 40.3rem;
-    /* background-color: red; */
-    padding: 2em;
-}
-.Input_container h1{
-    font-size: 4rem;
-}
-.Input_container p{
-    font-size:2.4rem ;
+.parent {
+  height: 100vh;
+  width: 100vw;
+  background-color: var(--primary);
 }
 
-.checksContainer{
-    margin-top: 1em;
-    height: 15rem;
-    width:35rem;
-    background-color: white;
-    display: flex;
-    /* align-items: center; */
-    justify-content: center;
-    flex-direction: column;
-    row-gap: 10px;
+.main-div {
+  width: 100rem;
+  height: 69.7rem;
+  background-color: #ffffff;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  border-radius: 16px;
+  padding: 2em;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+  align-items: baseline;
 }
-.Output_container{
-    height: 40rem;
-    width: 50rem 
-    /* background-color: red; */
+.Input_container {
+  height: 47.3rem;
+  width: 40.3rem;
+  /* background-color: red; */
+  padding: 2em;
+}
+.Input_container h1 {
+  font-size: 3.9rem;
+}
+.Input_container p {
+  font-size: 2.4rem;
 }
 
- .check1,.check2,.check3{
-    display: flex;
-   
-    align-items: center;
-    column-gap: 10px;
-}  
-.uploadfile{
-    margin-bottom: 15px;
+.checksContainer {
+  margin-top: 1em;
+  height: 15rem;
+  width: 35rem;
+  background-color: white;
+  display: flex;
+  /* align-items: center; */
+  justify-content: center;
+  flex-direction: column;
+  row-gap: 10px;
 }
-.uploadfile span{
-    font-weight: bold;
-    font-size: 20px;
+.Output_container {
+  height: 40rem;
+  width: 50rem;
+  /* background-color: red; */
 }
-.inputfile{
+
+.check1,
+.check2,
+.check3 {
+  display: flex;
+
+  align-items: center;
+  column-gap: 10px;
+}
+.uploadfile {
+  margin-bottom: 15px;
+}
+.uploadfile span {
+  font-weight: bold;
+  font-size: 20px;
+}
+.inputfile {
+  display: none;
+}
+.Filecontainer {
+  display: flex;
+  width: 150px;
+  align-items: center;
+  height: 45px;
+  border-radius: 10px;
+  background-color: #36384e;
+  color: white;
+  flex-direction: row;
+  justify-content: space-evenly;
+}
+label {
+  display: inline-block;
+  height: 50px;
+  width: 200px;
+  text-align: center;
+  line-height: 45px;
+  font-size: medium;
+  cursor: pointer;
+}
+.gif-container {
+  display: inline-block;
+  width: 30px;
+  height: 40px;
+  line-height: 40px;
+}
+.gif {
+  max-width: 100%;
+  max-height: 100%;
+  position: relative;
+  top: 0.5em;
+}
+#Submit-button {
+  margin-top: 1em;
+  display: block;
+  height: 50px;
+  width: 150px;
+  text-align: center;
+  border-radius: 10px;
+  background-color: var(--submit-color);
+  color: white;
+  line-height: 45px;
+  font-size: medium;
+  cursor: pointer;
+  outline: none;
+}
+#Download-button {
+  margin-top: 1em;
+  display: block;
+  height: 50px;
+  width: 200px;
+  text-align: center;
+  border-radius: 10px;
+  background-color: var(--download-color);
+  color: white;
+  line-height: 45px;
+  font-size: medium;
+  cursor: pointer;
+  outline: none;
+}
+
+.file-management {
+  display: flex;
+  justify-content: space-between;
+}
+
+#selectApi {
+  padding: 15px 20px;
+  border: none;
+  background: #242742;
+  color: white;
+  border-radius: 10px;
+}
+
+.recorder {
+  display: flex;
+  align-items: center;
+  justify-content: space-;
+  margin-top: 5px;
+}
+
+.record-button {
+  padding: 10px 20px;
+  font-size: 15px;
+  font-weight: bold;
+  border: none;
+  border-radius: 5px;
+  /* background-color: #3498db; */
+  background-color: #8a54c1;
+  color: #fff;
+  cursor: pointer;
+}
+
+.record-button.recording {
+  background-color: #e74c3c;
+}
+
+.file-api-group {
+  display: inline-block;
+  justify-content: space-between;
+  align-items: center;
+}
+
+#timer {
     display: none;
-}
-.Filecontainer{
-    display: flex;
-    width: 200px;
-    align-items: center;
-    height: 45px;
-    border-radius: 10px;
-    background-color: #36384E;
-    color: white;
-    flex-direction: row;
-    justify-content: space-evenly;
-}
-label{
-    display: inline-block;
-    height: 50px;
-    width: 200px;
-    text-align: center;
-    line-height: 45px;
-    font-size: medium;
-    cursor: pointer;
-}
-.gif-container{
-    display: inline-block;
-    width: 30px;
-    height: 40px;
-    line-height: 40px;
-
-}
-.gif{
-    max-width: 100%;
-    max-height: 100%;
-    position: relative;
-    top: 0.5em;
-}
-#Submit-button{
-    margin-top: 1em;
-    display: block;
-    height: 50px;
-    width: 200px;
-    text-align: center;
-    border-radius: 10px;
-    background-color: var(--submit-color);
-    color:white;
-    line-height: 45px;
-    font-size: medium;
-    cursor: pointer;
-    outline: none;
-}
-#Download-button{
-    margin-top: 1em;
-    display: block;
-    height: 50px;
-    width: 200px;
-    text-align: center;
-    border-radius: 10px;
-    background-color: var(--download-color);
-    color:white;
-    line-height: 45px;
-    font-size: medium;
-    cursor: pointer;
-    outline: none;
+  color: #646464;
+  font-size: 20px;
+  padding-left: 10px;
+  justify-content: center;
+  align-items: center;
 }
 
-#selectApi{
-    padding: 15px 30px;
-    border: none;
-    background: #23241f;
-    color: white;
-    border-radius: 10px;
-    margin-top: 5px;
+#recording-text {
+  font-size: 15px;
+  color: #70458b;
+  margin-top: 30px;
 }

@@ -49,7 +49,7 @@ form.addEventListener("submit", async (event) => {
       // const jwtToken = response.data.token;
       // document.cookie = `token=${jwtToken}; path=/`;
       // console.log(jwtToken);
-      // window.location.href = "main.html";
+      window.location.href = "main.html";
     }
   } catch (error) {
     console.error("Error:", error);
