@@ -86,6 +86,23 @@ let getSelectedValue;
 document.addEventListener("DOMContentLoaded", () => {
   console.log("DOM Content Loaded");
   const form = document.getElementById("uploadAudio");
+  const copyButton = document.querySelector('.copy-button');
+
+  copyButton.addEventListener('click', function() {
+    // Get the Quill editor content
+    let qlEditor = document.querySelector(".ql-editor");
+    let editorContent = qlEditor.innerText;
+  
+    // Copy the content to the clipboard
+    navigator.clipboard.writeText(editorContent)
+      .then(function() {
+        // Notify the user
+        alert('Content copied to clipboard');
+      })
+      .catch(function(err) {
+        console.error('Could not copy text: ', err);
+      });
+  });
 
   let data = {
     text: "",

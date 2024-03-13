@@ -201,48 +201,26 @@ label {
   color: #70458b;
   margin-top: 30px;
 }
-
-.btn-primary.btn-filled {
-  background-color: #e1301f;
-  color: white;
-}
-
-.btn-primary.btn-filled:hover {
-  background-color: #eb5649;
-}
-
-.btn-sm {
-  font-size: 14px;
-  line-height: 20px;
-  padding: 6px 12px;
-}
-
-.btn {
-  border: none;
-  border-radius: 8px;
-  box-sizing: border-box;
-  cursor: pointer;
-  display: inline-flex;
-  font-weight: 500;
-  justify-content: center;
-  line-height: 1.4;
-  position: relative;
-  transition: box-shadow 0.2s, background-color 0.2s, color 0.2s, border 0.2s;
-  -webkit-user-select: none;
-  user-select: none;
-  white-space: nowrap;
-}
-
-.items-center {
-  align-items: center;
-}
-
-.items-center {
-  align-items: center;
-}
-
 .copy-download {
   display: flex;
   justify-content: space-between;
   align-items: center;
+}
+
+.copy-button {
+  background-color: #e1301f;
+  color: white;
+  font-size: 14px;
+  line-height: 20px;
+  padding: 6px 12px;
+  border: none;
+  border-radius: 10px;
+}
+
+.copy-button:hover {
+  background-color: #eb5649;
+}
+
+.btn-label-inner {
+  font-size: 17px;
 }
