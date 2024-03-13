@@ -238,7 +238,6 @@ label {
   background-color: #f44336;
   color: white;
   z-index: 1000;
-  display: flex;
   justify-content: space-between;
   align-items: center;
   animation: slideDown 0.3s forwards;
