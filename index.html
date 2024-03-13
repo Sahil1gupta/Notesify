@@ -6,9 +6,9 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <!-- displays site properly based on user's device -->
 
-  <link rel="icon" type="image/png" sizes="32x32" href="./assets/images/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="./assets/images/Screenshot 2024-03-13 at 2.02.42 AM.png">
   <link rel="stylesheet" href="style.css">
-  <title>Notesify | A Converter</title>
+  <title>Notesify</title>
   <link href="https://cdn.quilljs.com/1.3.6/quill.snow.css" rel="stylesheet">
 
   <!-- Feel free to remove these styles or customise in your own stylesheet 👍 -->
@@ -31,9 +31,9 @@
   <div class="parent">
     <div class="main-div">
       <div class="Input_container">
-        <h1>Welcome to Notesify</h1>
+        <h1>Welcome to Notesify !</h1>
         <p>
-          Convert Voice to Text & Vice Versa!
+          Create Audio and Text Notes at ease
         </p>
         <div class="checksContainer">
           <div class="check1">
@@ -86,32 +86,54 @@
           <div class="uploadfile">
             <span>Upload your file below</span>
           </div>
-          <div class="Filecontainer">
-            <input class="inputfile" type="file" name="file" id="text" />
-            <label for="text">Upload file
-              <div class="gif-container">
-                <img src="./assets/Audio_gif/microphone.gif" alt="audio gif" class="gif">
-              </div>
-            </label>
-          </div>
-          <div class="API-Selector">
+
+          <div class="file-management">
+            <div class="API-Selector">
               <select name="api" id="selectApi" onchange="getSelectedValue()">
                 <option value="" selected disabled>Select Your Converter</option>
                 <option value="toText">Audio to Text</option>
                 <option value="toAudio">Text to Audio</option>
               </select>
+            </div>
+            <div class="file-api-group">
+              <div class="Filecontainer">
+                <input class="inputfile" type="file" name="file" id="text" />
+                <label for="text">Upload file
+                  <div class="gif-container">
+                    <img src="./assets/Audio_gif/microphone.gif" alt="audio gif" class="gif">
+                  </div>
+                </label>
+              </div>
+            </div>
           </div>
 
 
+          <p id="recording-text"><i>Need instant audio recording?</i></p>
+          <div class="recorder">
+            <button class="record-button" id="recordButton">Start Recording</button>
+            <p id="timer">0:00</p>
+            <br><br> <br>
+          </div>
           <button type="submit" id="Submit-button">Convert</button>
 
         </form>
       </div>
       <div class="Output_container">
         <div class="" id="editor">
-          <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Maxime, cum.</p>
+          <p></p>
         </div>
-        <button onclick="htmlTopdf()" id="Download-button">Download pdf</button>
+
+        <div class="copy-download">
+          <button onclick="htmlTopdf()" id="Download-button">Download pdf</button>
+
+          <button type="button" class="copy-button" aria-label="Copy"><span class="btn-label-wrap"><span
+                class="btn-node start-node"><svg xmlns="http://www.w3.org/2000/svg" width="18px" height="20px"
+                  fill="currentColor" viewBox="0 0 24 24">
+                  <path fill-rule="evenodd"
+                    d="M7 5a3 3 0 0 1 3-3h9a3 3 0 0 1 3 3v9a3 3 0 0 1-3 3h-2v2a3 3 0 0 1-3 3H5a3 3 0 0 1-3-3v-9a3 3 0 0 1 3-3h2V5Zm2 2h5a3 3 0 0 1 3 3v5h2a1 1 0 0 0 1-1V5a1 1 0 0 0-1-1h-9a1 1 0 0 0-1 1v2ZM5 9a1 1 0 0 0-1 1v9a1 1 0 0 0 1 1h9a1 1 0 0 0 1-1v-9a1 1 0 0 0-1-1H5Z"
+                    clip-rule="evenodd"></path>
+                </svg></span><span class="btn-label-inner">Copy‍</span></span></button>
+        </div>
       </div>
     </div>
   </div>
@@ -121,6 +143,7 @@
   <script src="https://cdn.quilljs.com/1.3.6/quill.js"></script>
   <script src="quillSetup.js"></script>
   <script src="index.js" defer></script>
+  <script src="main.js"></script>
   <script>
     function htmlTopdf() {
       const element = document.getElementById("editor");
