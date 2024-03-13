@@ -28,10 +28,10 @@ function startRecording() {
       mediaRecorder.onstop = function (e) {
         console.log("Recording stopped");
         isRecording = false;
+
         document.getElementById("recordButton").textContent = "Start Recording";
         document.getElementById("recordButton").classList.remove("recording");
         document.getElementById("timer").style.display = "none"; // Hide the timer
-
 
         // Combine all recorded chunks into a single Blob
         let recordedBlob = new Blob(chunks, { type: "audio/wav" });
@@ -64,7 +64,9 @@ function startRecording() {
 }
 
 function stopRecording() {
+  console.log("stopRecording hit");
   mediaRecorder.stop();
+  mediaRecorder.stream.getTracks().forEach((track) => track.stop());
 }
 
 function formatTime(seconds) {
@@ -86,22 +88,36 @@ let getSelectedValue;
 document.addEventListener("DOMContentLoaded", () => {
   console.log("DOM Content Loaded");
   const form = document.getElementById("uploadAudio");
-  const copyButton = document.querySelector('.copy-button');
+  const copyButton = document.querySelector(".copy-button");
 
   copyButton.addEventListener('click', function() {
     // Get the Quill editor content
     let qlEditor = document.querySelector(".ql-editor");
     let editorContent = qlEditor.innerText;
-  
+
     // Copy the content to the clipboard
-    navigator.clipboard.writeText(editorContent)
+    navigator.clipboard
+      .writeText(editorContent)
       .then(function() {
-        // Notify the user
-        alert('Content copied to clipboard');
+        // Show the alert popup
+        let alertPopup = document.getElementById('alertPopup');
+        let alertMessage = document.getElementById('alertMessage');
+        alertMessage.textContent = 'Text copied!';
+        alertPopup.style.display = 'block';
+
+        // Hide the alert popup after 3 seconds
+        setTimeout(function() {
+          alertPopup.style.display = 'none';
+        }, 3000);
       })
       .catch(function(err) {
         console.error('Could not copy text: ', err);
       });
+  });
+
+  // Add click event listener to the alert close button
+  document.getElementById('alertCloseButton').addEventListener('click', function() {
+    document.getElementById('alertPopup').style.display = 'none';
   });
 
   let data = {
