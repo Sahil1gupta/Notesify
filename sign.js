@@ -31,17 +31,25 @@ form.addEventListener("submit", async (event) => {
 
     const responseType = "json";
 
-    const response = await axios({ url, method, headers, data, responseType });
+    const response = await axios({
+      url,
+      method,
+      headers,
+      data,
+      responseType,
+      withCredentials: true,
+    });
 
     console.log(response);
     if (response.status !== 200) {
       console.log("network issue");
     } else {
-        // console.log(response.data);
+      console.log(response.cookie);
+      // console.log(response.data);
       // const jwtToken = response.data.token;
       // document.cookie = `token=${jwtToken}; path=/`;
       // console.log(jwtToken);
-      // window.location.href = "main.html";
+      window.location.href = "index.html";
     }
   } catch (error) {
     console.error("Error:", error);

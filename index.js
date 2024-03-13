@@ -1,7 +1,108 @@
+let isRecording = false;
+let mediaRecorder;
+let chunks = []; // Array to store recorded audio chunks
+let timerInterval;
+let seconds = 0;
+
+function startRecording() {
+  navigator.mediaDevices
+    .getUserMedia({ audio: true })
+    .then(function (stream) {
+      mediaRecorder = new MediaRecorder(stream);
+      mediaRecorder.start();
+      document.getElementById("recordButton").classList.add("recording");
+      isRecording = true;
+
+      // Start the timer
+      document.getElementById("timer").style.display = "inline"; // Show the timer
+
+      timerInterval = setInterval(function () {
+        seconds++;
+        document.getElementById("timer").textContent = formatTime(seconds);
+      }, 1000);
+
+      mediaRecorder.ondataavailable = function (e) {
+        chunks.push(e.data);
+      };
+
+      mediaRecorder.onstop = function (e) {
+        console.log("Recording stopped");
+        isRecording = false;
+        document.getElementById("recordButton").textContent = "Start Recording";
+        document.getElementById("recordButton").classList.remove("recording");
+        document.getElementById("timer").style.display = "none"; // Hide the timer
+
+
+        // Combine all recorded chunks into a single Blob
+        let recordedBlob = new Blob(chunks, { type: "audio/wav" });
+
+        // Create a temporary URL for the recorded audio Blob
+        let audioUrl = URL.createObjectURL(recordedBlob);
+
+        // Create a download link for the recorded audio
+        let downloadLink = document.createElement("a");
+        downloadLink.href = audioUrl;
+        downloadLink.download = "recorded_audio.wav";
+        downloadLink.textContent = "Download Recorded Audio";
+        document.body.appendChild(downloadLink);
+        downloadLink.click();
+
+        // Cleanup
+        chunks = [];
+        URL.revokeObjectURL(audioUrl);
+        document.body.removeChild(downloadLink);
+
+        // Stop the timer
+        clearInterval(timerInterval);
+        seconds = 0;
+        document.getElementById("timer").textContent = "0:00";
+      };
+    })
+    .catch(function (err) {
+      console.log("Error: " + err);
+    });
+}
+
+function stopRecording() {
+  mediaRecorder.stop();
+}
+
+function formatTime(seconds) {
+  let minutes = Math.floor(seconds / 60);
+  seconds = seconds % 60;
+  return `${minutes}:${seconds < 10 ? "0" : ""}${seconds}`;
+}
+
+document.getElementById("recordButton").addEventListener("click", function () {
+  if (!isRecording) {
+    startRecording();
+    this.textContent = "Stop Recording";
+  } else {
+    stopRecording();
+  }
+});
+
 let getSelectedValue;
 document.addEventListener("DOMContentLoaded", () => {
   console.log("DOM Content Loaded");
   const form = document.getElementById("uploadAudio");
+  const copyButton = document.querySelector('.copy-button');
+
+  copyButton.addEventListener('click', function() {
+    // Get the Quill editor content
+    let qlEditor = document.querySelector(".ql-editor");
+    let editorContent = qlEditor.innerText;
+  
+    // Copy the content to the clipboard
+    navigator.clipboard.writeText(editorContent)
+      .then(function() {
+        // Notify the user
+        alert('Content copied to clipboard');
+      })
+      .catch(function(err) {
+        console.error('Could not copy text: ', err);
+      });
+  });
 
   let data = {
     text: "",
