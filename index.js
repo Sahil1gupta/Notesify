@@ -147,10 +147,9 @@ document.addEventListener("DOMContentLoaded", () => {
     try {
       let response;
       if (currentApi === "toText") {
-        formdata.append("audio",  document.getElementById("text").files[0]);
         response = await axios.post(
           "https://notesify-server.vercel.app/transcript/transcriptAudio",
-          formData,
+          formdata.append("audio",  document.getElementById("text").files[0]),
           {
             headers: {
               authorization:
@@ -172,10 +171,9 @@ document.addEventListener("DOMContentLoaded", () => {
           );
         }
       } else if (currentApi === "toAudio") {
-        formdata.append("text",  document.getElementById("text").files[0]);
         response = await axios.post(
           "https://notesify-server.vercel.app/speech/generateSpeech",
-          formData,
+          formdata.append("text",  document.getElementById("text").files[0]),
           {
             headers: {
               authorization:
