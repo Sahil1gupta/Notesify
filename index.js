@@ -120,8 +120,8 @@ document.addEventListener("DOMContentLoaded", () => {
     console.log(event);
 
     const formData = new FormData();
-    const audio = document.getElementById("text").files[0];
-    formData.append("audio", audio);
+    // const audio = document.getElementById("text").files[0];
+    // formData.append("audio", audio);
 
     let editor = document.getElementById("editor");
     var childElements = editor.children;
@@ -145,6 +145,12 @@ document.addEventListener("DOMContentLoaded", () => {
     console.log(dataCont);
     let luli = qlEditor.children[0];
     try {
+      if (document.getElementById("text") && document.getElementById("text").files.length > 0) {
+        const audio = document.getElementById("text").files[0];
+        formData.append("audio", audio);
+    } else {
+        console.error('No file selected');
+    }
       let response;
       if (currentApi === "toText") {
         response = await axios.post(
