@@ -153,7 +153,7 @@ document.addEventListener("DOMContentLoaded", () => {
           {
             headers: {
               authorization:
-                "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY1ODQ0NDdiNzZlMmM4ZTY4ZmQxNTllZiIsImlhdCI6MTcwNzY2MjE3MiwiZXhwIjoxNzEwMjU0MTcyfQ.0pr27n7__W9WNqV7dd2oD7r3MyzZqaztKrmUq7kxAPw", // Replace with your actual token
+                "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY1ODQ0NDdiNzZlMmM4ZTY4ZmQxNTllZiIsImlhdCI6MTcxMjM4MTYwOCwiZXhwIjoxNzE0OTczNjA4fQ.uK9opv_YI1TyPiFcIKqv8EtKgMh61MblbdlzWXPp-yY", // Replace with your actual token
             },
           }
         );
