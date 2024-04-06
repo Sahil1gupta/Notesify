@@ -172,7 +172,7 @@ document.addEventListener("DOMContentLoaded", () => {
         }
       } else if (currentApi === "toAudio") {
         const formData = new FormData();
-        formData.append("text", fileInput.files[0], "text.txt");
+        formData.append("text", audio, "text.txt");
       
         const config = {
           headers: {
