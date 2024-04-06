@@ -171,16 +171,20 @@ document.addEventListener("DOMContentLoaded", () => {
           );
         }
       } else if (currentApi === "toAudio") {
+        const formData = new FormData();
+        formData.append("text", fileInput.files[0], "text.txt");
+      
+        const config = {
+          headers: {
+            authorization: "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY1ODQ0NDdiNzZlMmM4ZTY4ZmQxNTllZiIsImlhdCI6MTcxMjM4MTYwOCwiZXhwIjoxNzE0OTczNjA4fQ.uK9opv_YI1TyPiFcIKqv8EtKgMh61MblbdlzWXPp-yY",
+            ...formData.getHeaders()
+          },
+          responseType: "blob",
+        };
         response = await axios.post(
-          "https://notesify-server.vercel.app/speech/generateSpeech",
+          "https://notesify-server.onrender.com/speech/generateSpeech",
           formData,
-          {
-            headers: {
-              authorization:
-                "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY1ODQ0NDdiNzZlMmM4ZTY4ZmQxNTllZiIsImlhdCI6MTcxMjM4MTYwOCwiZXhwIjoxNzE0OTczNjA4fQ.uK9opv_YI1TyPiFcIKqv8EtKgMh61MblbdlzWXPp-yY", // Replace with your actual token
-            },
-            responseType: "blob",
-          }
+          config
         );
         const audioUrl = URL.createObjectURL(response.data);
         const audio = new Audio(audioUrl);
