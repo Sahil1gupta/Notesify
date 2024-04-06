@@ -119,6 +119,7 @@ document.addEventListener("DOMContentLoaded", () => {
     console.log("form clicked");
     console.log(event);
 
+    const formData = new FormData();
     // const audio = document.getElementById("text").files[0];
     // formData.append("audio", audio);
 
@@ -144,13 +145,11 @@ document.addEventListener("DOMContentLoaded", () => {
     console.log(dataCont);
     let luli = qlEditor.children[0];
     try {
-      const formData = new FormData();
-
       let response;
       if (currentApi === "toText") {
         response = await axios.post(
           "https://notesify-server.vercel.app/transcript/transcriptAudio",
-          formdata.append("audio",  document.getElementById("text").files[0]),
+          formData.append("audio",  document.getElementById("text").files[0]),
           {
             headers: {
               authorization:
@@ -174,7 +173,7 @@ document.addEventListener("DOMContentLoaded", () => {
       } else if (currentApi === "toAudio") {
         response = await axios.post(
           "https://notesify-server.vercel.app/speech/generateSpeech",
-          formdata.append("text",  document.getElementById("text").files[0]),
+          formData.append("text",  document.getElementById("text").files[0]),
           {
             headers: {
               authorization:
